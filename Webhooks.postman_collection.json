@@ -1,0 +1,217 @@
+{
+	"info": {
+		"_postman_id": "76c91150-27d6-47a0-b870-c20c56f64770",
+		"name": "Webhooks",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "31008604"
+	},
+	"item": [
+		{
+			"name": "Basic AdaptiveCard",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"message\",\r\n  \"attachments\": [\r\n    {\r\n      \"contentType\": \"application/vnd.microsoft.card.adaptive\",\r\n      \"content\": {\r\n        \"type\": \"AdaptiveCard\",\r\n        \"body\": [\r\n          {\r\n            \"type\": \"TextBlock\",\r\n            \"text\": \"Message Text\"\r\n          }\r\n        ],\r\n        \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n        \"version\": \"1.0\"\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{YourTeamChannelWebhookURL}}",
+					"host": [
+						"{{YourTeamChannelWebhookURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adaptive Card in Action1",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"message\",\r\n  \"attachments\": [\r\n   {\r\n  \"contentType\": \"application/vnd.microsoft.card.adaptive\",\r\n  \"content\": {\r\n    \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n    \"type\": \"AdaptiveCard\",\r\n    \"version\": \"1.0\",\r\n    \"body\": [\r\n      {\r\n        \"type\": \"Container\",\r\n        \"items\": [\r\n          {\r\n            \"type\": \"TextBlock\",\r\n            \"text\": \"Publish Adaptive Card schema\",\r\n            \"weight\": \"bolder\",\r\n            \"size\": \"medium\"\r\n          },\r\n          {\r\n            \"type\": \"ColumnSet\",\r\n            \"columns\": [\r\n              {\r\n                \"type\": \"Column\",\r\n                \"width\": \"auto\",\r\n                \"items\": [\r\n                  {\r\n                    \"type\": \"Image\",\r\n                    \"url\": \"https://pbs.twimg.com/profile_images/3647943215/d7f12830b3c17a5a9e4afcc370e3a37e_400x400.jpeg\",\r\n                    \"size\": \"small\",\r\n                    \"style\": \"person\"\r\n                  }\r\n                ]\r\n              },\r\n              {\r\n                \"type\": \"Column\",\r\n                \"width\": \"stretch\",\r\n                \"items\": [\r\n                  {\r\n                    \"type\": \"TextBlock\",\r\n                    \"text\": \"Matt Hidinger\",\r\n                    \"weight\": \"bolder\",\r\n                    \"wrap\": true\r\n                  },\r\n                  {\r\n                    \"type\": \"TextBlock\",\r\n                    \"spacing\": \"none\",\r\n                    \"text\": \"Created {{DATE(2017-02-14T06:08:39Z, SHORT)}}\",\r\n                    \"isSubtle\": true,\r\n                    \"wrap\": true\r\n                  }\r\n                ]\r\n              }\r\n            ]\r\n          }\r\n        ]\r\n      },\r\n      {\r\n        \"type\": \"Container\",\r\n        \"items\": [\r\n          {\r\n            \"type\": \"TextBlock\",\r\n            \"text\": \"Now that we have defined the main rules and features of the format, we need to produce a schema and publish it to GitHub. The schema will be the starting point of our reference documentation.\",\r\n            \"wrap\": true\r\n          },\r\n          {\r\n            \"type\": \"FactSet\",\r\n            \"facts\": [\r\n              {\r\n                \"title\": \"Board:\",\r\n                \"value\": \"Adaptive Card\"\r\n              },\r\n              {\r\n                \"title\": \"List:\",\r\n                \"value\": \"Backlog\"\r\n              },\r\n              {\r\n                \"title\": \"Assigned to:\",\r\n                \"value\": \"Matt Hidinger\"\r\n              },\r\n              {\r\n                \"title\": \"Due date:\",\r\n                \"value\": \"Not set\"\r\n              }\r\n            ]\r\n          }\r\n        ]\r\n      }\r\n    ],\r\n    \"actions\": [\r\n      {\r\n        \"type\": \"Action.ShowCard\",\r\n        \"title\": \"Set due date\",\r\n        \"card\": {\r\n          \"type\": \"AdaptiveCard\",\r\n          \"body\": [\r\n            {\r\n              \"type\": \"Input.Date\",\r\n              \"id\": \"dueDate\"\r\n            }\r\n          ],\r\n          \"actions\": [\r\n            {\r\n              \"type\": \"Action.Submit\",\r\n              \"title\": \"OK\"\r\n            }\r\n          ]\r\n        }\r\n      },\r\n      {\r\n        \"type\": \"Action.ShowCard\",\r\n        \"title\": \"Comment\",\r\n        \"card\": {\r\n          \"type\": \"AdaptiveCard\",\r\n          \"body\": [\r\n            {\r\n              \"type\": \"Input.Text\",\r\n              \"id\": \"comment\",\r\n              \"isMultiline\": true,\r\n              \"placeholder\": \"Enter your comment\"\r\n            }\r\n          ],\r\n          \"actions\": [\r\n            {\r\n              \"type\": \"Action.Submit\",\r\n              \"title\": \"OK\"\r\n            }\r\n          ]\r\n        }\r\n      }\r\n    ]\r\n  }  \r\n}\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{YourTeamChannelWebhookURL}}",
+					"host": [
+						"{{YourTeamChannelWebhookURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Adaptive Card in Action2 [Automation Flag Bearer]",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"message\",\r\n  \"attachments\": [\r\n    {\r\n      \"contentType\": \"application/vnd.microsoft.card.adaptive\",\r\n      \"content\": {\r\n        \"type\": \"AdaptiveCard\",\r\n        \"body\": [\r\n          {\r\n            \"type\": \"Container\",\r\n            \"items\": [\r\n              {\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"Regression Automation Status Report-1\",\r\n                \"weight\": \"bolder\",\r\n                \"size\": \"medium\"\r\n              },\r\n              {\r\n                \"type\": \"ColumnSet\",\r\n                \"columns\": [\r\n                  {\r\n                    \"type\": \"Column\",\r\n                    \"width\": \"auto\",\r\n                    \"items\": [\r\n                      {\r\n                        \"type\": \"Image\",\r\n                        \"url\": \"https://pbs.twimg.com/profile_images/3647943215/d7f12830b3c17a5a9e4afcc370e3a37e_400x400.jpeg\",\r\n                        \"size\": \"small\",\r\n                        \"style\": \"person\"\r\n                      }\r\n                    ]\r\n                  },\r\n                  {\r\n                    \"type\": \"Column\",\r\n                    \"width\": \"stretch\",\r\n                    \"items\": [\r\n                      {\r\n                        \"type\": \"TextBlock\",\r\n                        \"text\": \"Matt Hidinger\",\r\n                        \"weight\": \"bolder\",\r\n                        \"wrap\": true\r\n                      },\r\n                      {\r\n                        \"type\": \"TextBlock\",\r\n                        \"spacing\": \"none\",\r\n                        \"text\": \"Created {{DATE(2017-02-14T06:08:39Z, SHORT)}}\",\r\n                        \"isSubtle\": true,\r\n                        \"wrap\": true\r\n                      }\r\n                    ]\r\n                  }\r\n                ]\r\n              }\r\n            ]\r\n          },\r\n          {\r\n            \"type\": \"Container\",\r\n            \"items\": [\r\n              {\r\n                \"type\": \"TextBlock\",\r\n                \"text\": \"It ran on Android 8.\",\r\n                \"wrap\": false\r\n              },\r\n              {\r\n                \"type\": \"FactSet\",\r\n                \"facts\": [\r\n                  {\r\n                    \"title\": \"Environment:\",\r\n                    \"value\": \"QA\"\r\n                  },\r\n                  {\r\n                    \"title\": \"Type:\",\r\n                    \"value\": \"Regression\"\r\n                  },\r\n                  {\r\n                    \"title\": \"PlatformName:\",\r\n                    \"value\": \"Android\"\r\n                  },\r\n                  {\r\n                    \"title\": \"PlatformVersion:\",\r\n                    \"value\": \"8\"\r\n                  },\r\n                  {\r\n                    \"title\": \"Container Name:\",\r\n                    \"value\": \"Container1\"\r\n                  },\r\n                  {\r\n                    \"title\": \"IP :\",\r\n                    \"value\": \"11.11.11.11\"\r\n                  },\r\n                  {\r\n                    \"title\": \"Passed :\",\r\n                    \"value\": \"400/500\"\r\n                  },\r\n                  {\r\n                    \"title\": \"Failed :\",\r\n                    \"value\": \"100/500\"\r\n                  }\r\n                ]\r\n              }\r\n            ]\r\n          }\r\n        ],\r\n        \"actions\": [\r\n          {\r\n            \"type\": \"Action.ShowCard\",\r\n            \"title\": \"Alert\",\r\n            \"card\": {\r\n              \"type\": \"AdaptiveCard\",\r\n              \"body\": [\r\n                {\r\n                  \"type\": \"Input.Date\",\r\n                  \"id\": \"dueDate\"\r\n                }\r\n              ],\r\n              \"actions\": [\r\n                {\r\n                  \"type\": \"Action.Submit\",\r\n                  \"title\": \"OK\"\r\n                }\r\n              ]\r\n            }\r\n          },\r\n          {\r\n            \"type\": \"Action.ShowCard\",\r\n            \"title\": \"Ignore\",\r\n            \"card\": {\r\n              \"type\": \"AdaptiveCard\",\r\n              \"body\": [\r\n                {\r\n                  \"type\": \"Input.Text\",\r\n                  \"id\": \"comment\",\r\n                  \"isMultiline\": true,\r\n                  \"placeholder\": \"Enter your comment\"\r\n                }\r\n              ],\r\n              \"actions\": [\r\n                {\r\n                  \"type\": \"Action.Submit\",\r\n                  \"title\": \"OK\"\r\n                }\r\n              ]\r\n            }\r\n          }\r\n        ],\r\n        \"$schema\": \"http://adaptivecards.io/schemas/adaptive-card.json\",\r\n        \"version\": \"1.0\"\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{YourTeamChannelWebhookURL}}",
+					"host": [
+						"{{YourTeamChannelWebhookURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Hero Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"message\",\r\n  \"attachments\": [\r\n    {\r\n      \"contentType\": \"application/vnd.microsoft.card.hero\",\r\n      \"content\": {\r\n        \"title\": \"Hero Card\",\r\n        \"subtitle\": \"Seattle Center Monorail\",\r\n        \"text\": \"The Seattle Center Monorail is an elevated train line between Seattle Center (near the Space Needle) and downtown Seattle. It was built for the 1962 World's Fair. Its original two trains, completed in 1961, are still in service.\",\r\n        \"images\": [\r\n          {\r\n            \"url\": \"https://upload.wikimedia.org/wikipedia/commons/thumb/4/49/Seattle_monorail01_2008-02-25.jpg/1024px-Seattle_monorail01_2008-02-25.jpg\"\r\n          }\r\n        ],\r\n        \"buttons\": [\r\n          {\r\n            \"type\": \"openUrl\",\r\n            \"title\": \"Official website\",\r\n            \"value\": \"https://www.seattlemonorail.com\"\r\n          },\r\n          {\r\n            \"type\": \"openUrl\",\r\n            \"title\": \"Wikipeda page\",\r\n            \"value\": \"https://en.wikipedia.org/wiki/Seattle_Center_Monorail\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{YourTeamChannelWebhookURL}}",
+					"host": [
+						"{{YourTeamChannelWebhookURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "List Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"message\",\r\n  \"attachments\": [\r\n    {\r\n      \"contentType\": \"application/vnd.microsoft.teams.card.list\",\r\n      \"content\": {\r\n        \"title\": \"Card title\",\r\n        \"items\": [\r\n          {\r\n            \"type\": \"file\",\r\n            \"id\": \"https://contoso.sharepoint.com/teams/new/Shared%20Documents/Report.xlsx\",\r\n            \"title\": \"Report\",\r\n            \"subtitle\": \"teams > new > design\",\r\n            \"tap\": {\r\n              \"type\": \"imBack\",\r\n              \"value\": \"editOnline https://contoso.sharepoint.com/teams/new/Shared%20Documents/Report.xlsx\"\r\n            }\r\n          },\r\n          {\r\n            \"type\": \"resultItem\",\r\n            \"icon\": \"https://cdn2.iconfinder.com/data/icons/social-icons-33/128/Trello-128.png\",\r\n            \"title\": \"Trello title\",\r\n            \"subtitle\": \"A Trello subtitle\",\r\n            \"tap\": {\r\n              \"type\": \"openUrl\",\r\n              \"value\": \"http://trello.com\"\r\n            }\r\n          },\r\n          {\r\n            \"type\": \"section\",\r\n            \"title\": \"Manager\"\r\n          },\r\n          {\r\n            \"type\": \"person\",\r\n            \"id\": \"JohnDoe@contoso.com\",\r\n            \"title\": \"John Doe\",\r\n            \"subtitle\": \"Manager\",\r\n            \"tap\": {\r\n              \"type\": \"imBack\",\r\n              \"value\": \"whois JohnDoe@contoso.com\"\r\n            }\r\n          }\r\n        ],\r\n        \"buttons\": [\r\n          {\r\n            \"type\": \"imBack\",\r\n            \"title\": \"Select\",\r\n            \"value\": \"whois\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{YourTeamChannelWebhookURL}}",
+					"host": [
+						"{{YourTeamChannelWebhookURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Receipt Card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"message\",\r\n  \"attachments\": [\r\n    {\r\n      \"contentType\": \"application/vnd.microsoft.card.receipt\",\r\n      \"content\": {\r\n        \"title\": \"Receipt Card\",\r\n        \"facts\": [\r\n          {\r\n            \"key\": \"Order Number\",\r\n            \"value\": \"1234\"\r\n          },\r\n          {\r\n            \"key\": \"Payment Method\",\r\n            \"value\": \"VISA 5555-****\"\r\n          }\r\n        ],\r\n        \"items\": [\r\n          {\r\n            \"title\": \"Data Transfer\",\r\n            \"image\": {\r\n              \"url\": \"https://github.com/amido/azure-vector-icons/raw/master/renders/traffic-manager.png\"\r\n            },\r\n            \"price\": \"$ 38.45\",\r\n            \"quantity\": \"368\"\r\n          },\r\n          {\r\n            \"title\": \"App Service\",\r\n            \"image\": {\r\n              \"url\": \"https://github.com/amido/azure-vector-icons/raw/master/renders/cloud-service.png\"\r\n            },\r\n            \"price\": \"$ 45.00\",\r\n            \"quantity\": \"720\"\r\n          }\r\n        ],\r\n        \"total\": \"$ 90.95\",\r\n        \"tax\": \"$ 7.50\",\r\n        \"buttons\": [\r\n          {\r\n            \"type\": \"openUrl\",\r\n            \"title\": \"More information\",\r\n            \"image\": \"https://account.windowsazure.com/content/6.10.1.38-.8225.160809-1618/aux-pre/images/offer-icon-freetrial.png\",\r\n            \"value\": \"https://azure.microsoft.com/en-us/pricing/\"\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{YourTeamChannelWebhookURL}}",
+					"host": [
+						"{{YourTeamChannelWebhookURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Thumbnail card",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"message\",\r\n  \"attachments\": [\r\n    {\r\n      \"contentType\": \"application/vnd.microsoft.card.thumbnail\",\r\n      \"content\": {\r\n        \"title\": \"Thumbnail card\",\r\n        \"subtitle\": \"tale of a robot who dared to love\",\r\n        \"text\": \"Bender Bending Rodríguez is a main character in the animated television series Futurama. He was created by series creators Matt Groening and David X. Cohen, and is voiced by John DiMaggio\",\r\n        \"images\": [\r\n          {\r\n            \"url\": \"https://upload.wikimedia.org/wikipedia/en/a/a6/Bender_Rodriguez.png\",\r\n            \"alt\": \"Bender Rodríguez\"\r\n          }\r\n        ],\r\n        \"buttons\": [\r\n          {\r\n            \"type\": \"imBack\",\r\n            \"title\": \"Thumbs Up\",\r\n            \"image\": \"http://moopz.com/assets_c/2012/06/emoji-thumbs-up-150-thumb-autox125-140616.jpg\",\r\n            \"value\": \"I like it\"\r\n          },\r\n          {\r\n            \"type\": \"imBack\",\r\n            \"title\": \"Thumbs Down\",\r\n            \"image\": \"http://yourfaceisstupid.com/wp-content/uploads/2014/08/thumbs-down.png\",\r\n            \"value\": \"I don't like it\"\r\n          },\r\n          {\r\n            \"type\": \"openUrl\",\r\n            \"title\": \"I feel lucky\",\r\n            \"image\": \"http://thumb9.shutterstock.com/photos/thumb_large/683806/148441982.jpg\",\r\n            \"value\": \"https://www.bing.com/images/search?q=bender&qpvt=bender&qpvt=bender&qpvt=bender&FORM=IGRE\"\r\n          }\r\n        ],\r\n        \"tap\": {\r\n          \"type\": \"imBack\",\r\n          \"value\": \"Tapped it!\"\r\n        }\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{YourTeamChannelWebhookURL}}",
+					"host": [
+						"{{YourTeamChannelWebhookURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Connector card for Microsoft 365 Groups",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"message\",\r\n  \"attachments\": [\r\n    {\r\n      \"contentType\": \"application/vnd.microsoft.teams.card.o365connector\",\r\n      \"content\": {\r\n        \"@type\": \"MessageCard\",\r\n        \"@context\": \"http://schema.org/extensions\",\r\n        \"summary\": \"John Doe commented on Trello\",\r\n        \"title\": \"Project Tango\",\r\n        \"sections\": [\r\n          {\r\n            \"activityTitle\": \"John Doe commented\",\r\n            \"activitySubtitle\": \"On Project Tango\",\r\n            \"activityText\": \"\\\"Here are the designs\\\"\",\r\n            \"activityImage\": \"http://connectorsdemo.azurewebsites.net/images/MSC12_Oscar_002.jpg\"\r\n          },\r\n          {\r\n            \"title\": \"Details\",\r\n            \"facts\": [\r\n              {\r\n                \"name\": \"Labels\",\r\n                \"value\": \"Designs, redlines\"\r\n              },\r\n              {\r\n                \"name\": \"Due date\",\r\n                \"value\": \"Dec 7, 2016\"\r\n              },\r\n              {\r\n                \"name\": \"Attachments\",\r\n                \"value\": \"[final.jpg](http://connectorsdemo.azurewebsites.net/images/WIN14_Jan_04.jpg)\"\r\n              }\r\n            ]\r\n          },\r\n          {\r\n            \"title\": \"Images\",\r\n            \"images\": [\r\n              {\r\n                \"image\": \"http://connectorsdemo.azurewebsites.net/images/MicrosoftSurface_024_Cafe_OH-06315_VS_R1c.jpg\"\r\n              },\r\n              {\r\n                \"image\": \"http://connectorsdemo.azurewebsites.net/images/WIN12_Scene_01.jpg\"\r\n              },\r\n              {\r\n                \"image\": \"http://connectorsdemo.azurewebsites.net/images/WIN12_Anthony_02.jpg\"\r\n              }\r\n            ]\r\n          }\r\n        ],\r\n        \"potentialAction\": [\r\n          {\r\n            \"@context\": \"http://schema.org\",\r\n            \"@type\": \"ViewAction\",\r\n            \"name\": \"View in Trello\",\r\n            \"target\": [\r\n              \"https://trello.com/c/1101/\"\r\n            ]\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{YourTeamChannelWebhookURL}}",
+					"host": [
+						"{{YourTeamChannelWebhookURL}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Best Template for Automation",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"type\": \"message\",\r\n  \"attachments\": [\r\n    {\r\n      \"contentType\": \"application/vnd.microsoft.teams.card.o365connector\",\r\n      \"content\": {\r\n        \"@type\": \"MessageCard\",\r\n        \"@context\": \"http://schema.org/extensions\",\r\n        \"summary\": \"John Doe commented on Trello\",\r\n        \"title\": \"Project SOMETHING\",\r\n        \"sections\": [\r\n          {\r\n            \"activityTitle\": \"[Regression] Test Automation Status Report-1\",\r\n            \"activitySubtitle\": \"On Android 8 with deviceName: Emulator-5554, avdName: Capella, resolution: 1080x2148\",\r\n            \"activityImage\": \"https://assets.perimeterx.com/image/upload/dpr_auto,f_auto,w_1200/blog/2017/step-by-step-guide-setting-up-appium/appium-logo_xn7bct\"\r\n          },\r\n          {\r\n            \"facts\": [\r\n              {\r\n                \"name\": \"Environment\",\r\n                \"value\": \"QA\"\r\n              },\r\n              {\r\n                \"name\": \"Passed\",\r\n                \"value\": \"495/500\"\r\n              },\r\n              {\r\n                \"name\": \"Failed\",\r\n                \"value\": \"5/500\"\r\n              },\r\n               {\r\n                \"name\": \"Status\",\r\n                \"value\": \"🟢Healthy\"\r\n              }github\r\n            ]\r\n          }\r\n        ],\r\n        \"potentialAction\": [\r\n          {\r\n            \"@context\": \"http://schema.org\",\r\n            \"@type\": \"ViewAction\",\r\n            \"name\": \"Appium Server Logs\",\r\n            \"target\": [\r\n              \"http://appium.io/docs/en/2.1/cli/args/\"\r\n            ]\r\n          },\r\n          {\r\n            \"@context\": \"http://schema.org\",\r\n            \"@type\": \"ViewAction\",\r\n            \"name\": \"Execution Logs\",\r\n            \"target\": [\r\n              \"https://trello.com/c/1101/\"\r\n            ]\r\n          },\r\n          {\r\n            \"@context\": \"http://schema.org\",\r\n            \"@type\": \"ViewAction\",\r\n            \"name\": \"Allure Reports\",\r\n            \"target\": [\r\n              \"https://trello.com/c/1101/\"\r\n            ]\r\n          },\r\n          {\r\n            \"@context\": \"http://schema.org\",\r\n            \"@type\": \"ViewAction\",\r\n            \"name\": \"Jira Test Cycle\",\r\n            \"target\": [\r\n              \"https://trello.com/c/1101/\"\r\n            ]\r\n          },\r\n          {\r\n            \"@context\": \"http://schema.org\",\r\n            \"@type\": \"ViewAction\",\r\n            \"name\": \"Github Workflow\",\r\n            \"target\": [\r\n              \"https://trello.com/c/1101/\"\r\n            ]\r\n          }\r\n        ]\r\n      }\r\n    }\r\n  ]\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{YourTeamChannelWebhookURL}}",
+					"host": [
+						"{{YourTeamChannelWebhookURL}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
